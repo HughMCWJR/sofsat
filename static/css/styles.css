@@ -1,0 +1,96 @@
+h1 {
+  color: #767D92;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+p {
+  color: #767D92;
+}
+
+label, div {
+  color: #506680;
+}
+
+label {
+  font-size: 20px;
+}
+
+.left_label {
+  color: blue;
+}
+
+.right_label {
+  color: #cc1100;
+}
+
+.right_align {
+  text-align: right;
+}
+
+.middle_align {
+  text-align: center;
+}
+
+.bigger {
+  font-size: 32px;
+}
+
+.bigger_labels {
+  font-size: 26px;
+}
+
+.bigger_wings {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.bigger_intersect {
+  font-size: 40px;
+}
+
+.bigger_intersect_title {
+  font-size: 50px;
+}
+
+.middle_label_table, .middle_label {
+  color: darkgreen;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 5px;
+  background-color: lightgrey;
+  font-size: 14px;
+}
+
+th {
+  background-color: darkgrey;
+}
+
+body {
+  background-color: lightgrey;
+  padding: 30px;
+}
+
+h3 {
+  color: #767D92;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+p.NextToTable {
+  margin-left: 27%;
+}
+
+.scroll {
+    max-height: 325px;
+    overflow-y: auto;
+}
+
+.scroll_dif {
+    min-height: 325px;
+    max-height: 325px;
+    overflow-y: auto;
+}

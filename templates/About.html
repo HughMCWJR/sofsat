@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>SOFSAT</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="{{ url_for('load') }}">SOFSAT Demo<span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="{{ url_for('about') }}">People</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="container-fluid pt-3">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="https://www.auburn.edu">
+					<img src="{{url_for('static', filename='images/auburn-logo.svg')}}" alt="logo" class="logo" />
+				</a>
+			</div>
+			<div class="col-md-8">
+				<h2>About the People</h2>
+			</div>
+			<div class="col-md-2">
+				<div class="float-right">
+					<a href="https://www.eng.auburn.edu">
+						<img src="{{url_for('static', filename='images/engr-logo.png')}}" alt="logo" class="logo" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="container">
+		<h3>Principal Investigator</h3>
+		<div class="row p-3">
+			<div class="col-md-2">
+				<img src="{{url_for('static', filename='images/santu.png')}}" class="rounded profile"/>
+			</div>
+    	<div class="col-md-9">
+      	<a href="https://karmake2.github.io">Dr. Shubhra Kanti Karmaker ("Santu")</a> is a Tenure-Track Assistant Professor in the department of Computer Science and Software Enginering at Auburn University, Alabama.
+      	His primary research interest lies at the intersection of Big Data, Artifical Intelligence and Natural Language Processing.
+      	Dr. Karmaker wrote the initial SOFSAT paper and was the Principal Investigator on this paper.
+    	</div>
+		</div>
+
+		<h3>Graduate</h3>
+		<div class="row p-3">
+			<div class="col-md-2">
+				<img src="{{url_for('static', filename='images/mousumi.jpg')}}" class="rounded profile"/>
+			</div>
+    	<div class="col-md-9">
+      	<a href="https://sites.google.com/view/mousumi-akter">Mousumi Akter</a> is a MS + PhD student of the
+				Computer Science and Software Engineering Department at Auburn University. She works with Dr. Karmaker in the
+				Big Data Intelligence (BDI) Lab as a research assistant. Mousumi was the primary graduate student working on
+				this paper.
+    	</div>
+		</div>
+
+		<h3>Undergraduate</h3>
+		<div class="row p-3">
+			<div class="col-md-2">
+				<img src="{{url_for('static', filename='images/will.jpg')}}" class="rounded profile"/>
+			</div>
+    	<div class="col-md-9">
+				Will Rice is a senior undergraduate student at Auburn University, studying Software Engineering. He is a part-time
+	      Research Assistant for Dr. Karmaker and plans to graduate in Spring of 2021. Will was responsible for
+	      building this web demo that accompanies the paper.
+    	</div>
+		</div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

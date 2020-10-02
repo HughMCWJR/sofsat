@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>SOFSAT</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="https://www.auburn.edu">
+					<img src="{{url_for('static', filename='images/auburn-logo.svg')}}" alt="logo" class="logo" />
+				</a>
+			</div>
+			<div class="col-md-8">
+				<h2>SOFSAT: a Set-like Operator based Framework for Semantic Analysis of Text</h2>
+			</div>
+			<div class="col-md-2">
+				<div class="float-right">
+					<a href="https://www.eng.auburn.edu">
+						<img src="{{url_for('static', filename='images/engr-logo.png')}}" alt="logo" class="logo" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="text-center button">
+		<a class="btn btn-primary" href="{{ url_for('load') }}" role="button">Click here to see demo now</a>
+	</div>
+
+
+	<div class="container">
+  	<div class="row">
+		<div class="col-md-8">
+			<h4>About SOFSAT</h4>
+			<div class="text-center">
+				<img src="{{url_for('static', filename='images/motivation.jpg')}}" alt="Motivation" class="rounded content"/>
+			</div>
+			<p>
+				<span class="sofsat">SOFSAT</span>, or Setlike Operator-based Framework for Semantic Analysis of Text, works with ideas taken from set theory,
+				which consists of operations on unordered collections of items. Such operators are intersection and difference, where intersection
+				finds the similarities between two sets, and difference finds the unique elements in a set. <span class="sofsat">SOFSAT</span> is a novel framework,
+				first proposed by Dr. Karmaker, which consits of  <span class="op">TextIntersect</span>, <span class="op">TextDifference</span>, and <span class="op">TextUnion</span>.
+				These operators act like their mathematical counterparts, but are designed specifically for semantic analysis of natural language text.
+				For full details, look at the paper <a href="https://karmake2.github.io/files/Publications/2018/SOFSAT.pdf">here.</a>
+			</p>
+			<p>
+				On this site, we demo the first (small-scale) working iteration of the <span class="sofsat">SOFSAT</span> framework.
+				We focus on two set-like operators, <span class="op">TextIntersect</span> and <span class="op">TextDifference</span>.
+				<span class="op">TextIntersect</span>, when provided two documents, finds the common information present in both documents.
+				On the other hand, an operation of LeftSide <span class="op">TextDifference</span> RightSide would find the elements present in the
+				LeftSide document that were not in the RightSide document.
+			</p>
+
+			<p>
+				The figure above illustrates an example of <span class="op">TextIntersect</span> and <span class="op">TextDifference</span> in action.
+				Two separate articles from two very different publishers are written about the same topic. Our <span class="sofsat">SOFSAT</span>
+				framework is able to find the similarities and differences between the two articles. This effectively shows the bias
+				that each side has, as well as the core ideas of the story. Reporting biases from the "Left" are represented by
+				coloring the text blue, while reporting biases from the "Right" are represented by coloring the text red. Text that
+				is core to the story, as determined by our <span class="op">TextIntersect</span> operator, is colored green.
+			</p>
+
+			<p>
+				Data for this project was collected from <a href="https://www.allsides.com/story/admin">Allsides.com</a>, a website
+				that gathers political news articles from both the "Left" and the "Right." It also gets stories from less biased, "Center" sources,
+				as well as writing a "Theme" that describes the common topic of the three articles.
+				We use this data to experiment with and evauluate our model.
+			</p>
+
+			<p>
+				Although we focused on political news stories for this demo, the idea of these text operators could be used in
+				many different fields. Real datasets are scarce in this
+				field currently, hopefully encouraging the research community to contribute data in this direction.
+				Our results show promising signs for future research. Our plan for future research is to integrate the current
+				state of the art Neural Network model to see whether it improves the performance.
+			</p>
+
+			<p>
+				Please enjoy the demo. More information about methods and findings can be found <a href="https://karmake2.github.io/files/Publications/2018/SOFSAT.pdf">here</a> in
+				our paper.
+			</p>
+		</div>
+
+		<div class="col-md-4">
+			<div class="debug">
+			<h4>Cite us</h4>
+			<pre> @article{karmaker2018sofsat,
+  title 	= {SOFSAT: Towards a Setlike Operator based Framework for Semantic Analysis of Text},
+  author	= {Shubhra (Santu) Karmaker and Geigle, Chase and Ferguson, Duncan and Cope, William and Kalantzis, Mary and Searsmith, Duane and Zhai, Chengxiang},
+  journal	= {ACM SIGKDD Explorations Newsletter},
+  volume	= {20},
+  number	= {2},
+  pages		= {21--30},
+  year		= {2018},
+  publisher	= {ACM New York, NY, USA}
+  }</pre>
+</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="text-center button">
+		<a class="btn btn-primary" href="{{ url_for('load') }}" role="button">Start Here!</a>
+	</div>
+
+</body>
+</html>
