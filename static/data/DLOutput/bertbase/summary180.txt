@@ -1,0 +1,3 @@
+The Russian government successfully obtained access to U.S. voter registration databases in multiple states prior to the 2016 election, the federal official responsible for monitoring hacking said.
+Jeannette Manfra, the head of cybersecurity at the Department of Homeland Security, told NBC News Thursday that Russia targeted 21 states and managed to actually penetrate "an exceptionally small number of them" in an interview published Thursday.
+Jeh Johnson, who was DHS secretary at the time, told NBC that states and the federal government should "do something about it," though he lamented many of the targeted states haven't taken action since the election.

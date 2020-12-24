@@ -49,7 +49,7 @@ class Summary_Class(object):
 
         self.Doc1 = self.df_T['right-context'][sample_no]
         self.Doc2 = self.df_T['left-context'][sample_no]
-        self.file = self.Doc1+self.Doc2
+        self.file = self.Doc1+' '+self.Doc2
         self.linePerTF = self.set_TF(self.file)
 
         self.Query = self.setQuery(self.Doc1, self.Doc2)[0]
@@ -60,7 +60,7 @@ class Summary_Class(object):
         df = pd.DataFrame(columns=['line', 'TF_Dictionary', 'Line_Length'])
         i = 0
         for line in Lines:
-            line = preprocess_round1(line)
+            # line = preprocess_round1(line)
             line = preprocess_round2(line)
             d = {}
             words = tokenize.word_tokenize(line)
@@ -80,10 +80,10 @@ class Summary_Class(object):
         return df
 
     def setQuery(self, Doc1, Doc2):
-        Doc1 = preprocess_round1(Doc1)
+        # Doc1 = preprocess_round1(Doc1)
         Doc1 = preprocess_round2(Doc1)
 
-        Doc2 = preprocess_round1(Doc2)
+        # Doc2 = preprocess_round1(Doc2)
         Doc2 = preprocess_round2(Doc2)
 
         dic_Doc1 = {}
@@ -243,7 +243,7 @@ class Summary_Class(object):
         filepathRead = os.path.join(readPath, "sample"+str(self.sample_no)+".txt")
         fileRead = open(filepathRead, "r")
 
-        allLine=""
+        allLine=" "
         for line in range(length):
             line = fileRead.readline()
             allLine+=line

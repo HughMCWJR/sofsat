@@ -24,7 +24,7 @@ def index():
 
 @app.route("/load")
 def load():
-    return render_template("loadExisting.html")
+    return render_template("loadTopic.html")
 
 @app.route("/about")
 def about():
@@ -38,13 +38,13 @@ def own():
     right_body = request.form.get("right_body")
     result = dummy.concat(left_body, right_body)
     center_head = dummy.concat(left_head, right_head)
-    return render_template("OwnIntersection.html", left_head=left_head, right_head=right_head,
+    return render_template("Intersect.html", left_head=left_head, right_head=right_head,
                             left_body=left_body, right_body=right_body, result=result,
                             center_head=center_head)
 
 @app.route("/loaded", methods=["POST"])
 def retrieve():
-    op = request.form.get("op")
+    
     left_head = request.form.get("left_head").split()
     right_head = request.form.get("right_head").split()
 
@@ -56,33 +56,60 @@ def retrieve():
     for i in range(len(right_body)):
         right_body[i] = right_body[i].split()
 
-
+    center_head = dummy.concat(left_head, right_head)
     sample_num = int(request.form.get("sample_num"))
-    output_length = int(request.form.get("output_length"))
+    output_length = 3
+    model = request.form.get("model")
+    result, table, target_middle, target_left, target_right = dummy.intersection(sample_num, output_length, df, df_idf, df_T)
 
-    if op == "intersection":
-        result, table, target_middle, target_left, target_right = dummy.intersection(sample_num, output_length, df, df_idf, df_T)
-
-        center_head = dummy.concat(left_head, right_head)
-
-        return render_template("OwnIntersection.html", left_head=left_head, right_head=right_head,
+    if model == "Query-based":   
+        return render_template("Intersect.html", left_head=left_head, right_head=right_head,
                                 left_body=left_body, right_body=right_body, result=result,
                                 center_head=center_head, scoreTable=table, target_left=target_left,
                                 target_right=target_right, target_middle=target_middle)
-    elif op == "difference":
-        right_bias, left_bias, right_scores, left_scores, target_right, target_left = dummy.difference(sample_num, output_length, df, df_idf, df_T)
+    elif model == "BERT-base":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    elif model == "Mobile-BERT":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    elif model == "DistilBERT":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    elif model == "RoBERTa":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    elif model == "XLNet":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    elif model == "GPT2":
+        summary, stable = dummy.DLintersection(sample_num, output_length, model)
+        return render_template("DLIntersect.html", left_head=left_head, right_head=right_head,
+                                left_body=left_body, right_body=right_body, result=summary,
+                                center_head=center_head, scoreTable=stable, target_left=target_left,
+                                target_right=target_right, target_middle=target_middle)
+    else:
+        return str(model)
 
-        center_head = dummy.concat(left_head, right_head)
-
-        return render_template("Difference.html", left_head=left_head, right_head=right_head,
-                                left_body=left_body, right_body=right_body, right_bias=right_bias,
-                                left_bias=left_bias, right_scores=right_scores, left_scores=left_scores,
-                                target_right=target_right, target_left=target_left)
 
 @app.route("/LoadEdit", methods=["POST"])
 def loadEdit():
     topic = request.form.get("topic")
-
     if topic == "Elections":
         db = election
     elif topic == "The White House":
@@ -99,7 +126,7 @@ def loadEdit():
 
     left_head, right_head, left_body, right_body, sample_num = dummy.loadRandomNew(df_T, db)
 
-    return render_template("LoadIntersection.html", left_head=left_head, right_head=right_head,
+    return render_template("LoadSample.html", left_head=left_head, right_head=right_head,
                             left_body=left_body, right_body=right_body, sample_num=sample_num)
 
 if __name__ == "__main__":
