@@ -11,7 +11,7 @@ import nltk
 def concat(left, right):
     out = left + right
     if len(out) > 500:
-        out = out[:499] + "..."
+        out = out[:499]
     return out
 
 def DLintersection(sample_num, output_length, model):

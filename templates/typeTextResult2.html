@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SOFSAT</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+      
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <div><h2>File 1</h2></div>
+            </div>
+            <div class="col-md-3 offset-md-3">
+                <div><h2>File 2</h2></div>
+            </div>
+        </div>
+        <form action="{{ url_for('retrieve') }}" method="post">
+            <div class="form-row">
+                <div class="form-group col-lg-6 pr-5">
+                    <label for="file1"><span class="left_label bigger_labels">Original file</span></label>
+                    <textarea required class="form-control" id="file1" name="left_body" rows="10" placeholder="Left body..." readonly>{{ original_1 }}</textarea>
+                </div>
+                
+                <div class="form-group col-lg-6 pl-5">
+                    <label for="file2"><span class="right_label bigger_labels">Original file</span></label>
+                    <textarea required class="form-control" id="file2" name="right_body" rows="10" placeholder="Right body..." readonly>{{ original_2 }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-6 pr-5">
+                    <label for="result1"><span class="left_label bigger_labels">Summary</span></label>
+                    <textarea required class="form-control" id="result1" name="left_body" rows="10" placeholder="Left body..." readonly>{{ summary_1 }}</textarea>
+                </div>
+            </div>
+    
+            <div align="center">
+            
+                <div class="form-group col-md-3">
+                    <label for = "model"><h2>Model</h2></label>
+                    <form id="form1" action="/loaded" method="GET" enctype="multipart/form-data">
+                        <select name="model" id="model" class="form-control">
+                            <option>Mobile-BERT</option>
+                            <option>BERT-base</option>
+                            <option>DistilBERT</option>
+                        </select>
+                </div>
+    
+                <div align = "center">
+                    <button class="btn btn-primary mt-2">Summarize</button>
+                </div>
+            </div>
+        </form>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

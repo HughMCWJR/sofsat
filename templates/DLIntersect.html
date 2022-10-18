@@ -13,64 +13,55 @@
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+	  <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
-
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="{{ url_for('load') }}">SOFSAT Demo<span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="{{ url_for('about') }}">People</a>
-	      </li>
-	    </ul>
-	  </div>
 	</nav>
 
 	<h1>TextIntersect (<span class="bigger_intersect_title">&#8745;</span><sub>T</sub>)</h1>
 
 	<div class="row">
-  <div class="col-sm-6 pr-5">
-		<label for="left_story" class="left_label bigger">Left Wing</label>
-    <div class="card scroll_dif" id="left_story">
-      <div class="card-body">
-        <h4 class="card-title">
-					{% for word in left_head %}
-						<span>{{word}}</span>
-					{% endfor %}
-				</h4>
-					{% for para in left_body %}
-						<p class="card-text">
-						{% for word in para %}
+  		<div class="col-sm-6 pr-5">
+			<label for="left_story" class="left_label bigger">Left Wing</label>
+    		<div class="card scroll_dif" id="left_story">
+      			<div class="card-body">
+        			<h4 class="card-title">
+						{% for word in left_head %}
 							<span>{{word}}</span>
 						{% endfor %}
-					</p>
+					</h4>
+					{% for para in left_body %}
+						<p class="card-text">
+							{% for word in para %}
+								<span>{{word}}</span>
+							{% endfor %}
+						</p>
 					{% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 pl-5">
-		<div class="right_align"><label for="right_story" class="right_label bigger">Right Wing</label></div>
-    <div class="card scroll_dif" id="right_story">
-    	<div class="card-body">
-      	<h4 class="card-title">
-					{% for word in right_head %}
-						<span>{{word}}</span>
+    		  </div>
+    		</div>
+  		</div>
+  		<div class="col-sm-6 pl-5">
+			<div class="right_align">
+				<label for="right_story" class="right_label bigger">Right Wing</label>
+			</div>
+    		<div class="card scroll_dif" id="right_story">
+    			<div class="card-body">
+      				<h4 class="card-title">
+						{% for word in right_head %}
+							<span>{{word}}</span>
+						{% endfor %}
+					</h4>
+					{% for para in right_body %}
+						<p class="card-text">
+							{% for word in para %}
+								<span>{{word}}</span>
+							{% endfor %}
+						</p>
 					{% endfor %}
-				</h4>
-				{% for para in right_body %}
-					<p class="card-text">
-					{% for word in para %}
-						<span>{{word}}</span>
-					{% endfor %}
-				</p>
-				{% endfor %}
-    	</div>
-    </div>
-  </div>
+    			</div>
+    		</div>
+  		</div>
 	</div>
 
 	<div class="row pt-5">

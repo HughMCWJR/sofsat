@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+	<hr class = "my-8">
+	<hr class = "my-4">
+
+	<div class="row">
+		<div class="col-md-3 offset-md-2">
+			<div><h2>Left Wing</h2></div>
+		</div>
+		<div class="col-md-3 offset-md-3">
+			<div><h2>Right Wing</h2></div>
+		</div>
+	</div>
+    <form action="{{ url_for('retrieve') }}" method="post">
+		<div align = "center">
+      		Sample No.
+        	<input name="sample_num" type="number" value="{{ sample_num }}" min="1" max="425" required readonly>
+    	</div>
+		
+		<div class="form-row">
+      		<div class="form-group col-lg-6 pr-5">
+			   <label for="exampleFormControlTextarea1"><span class="left_label bigger_labels">Headline</span></label>
+			   <textarea required class="form-control" id="exampleFormControlTextarea1" name="left_head" rows="1" placeholder="Left headline..." readonly>{{ left_head }}</textarea>
+		  	</div>
+
+      		<div class="form-group col-lg-6 pl-5">
+			   <label for="exampleFormControlTextarea1"><span class="right_label bigger_labels">Headline</span></label>
+			   <textarea required class="form-control" id="exampleFormControlTextarea1" name="right_head" rows="1" placeholder="Right headline..." readonly>{{ right_head }}</textarea>
+		  	</div>
+    	</div>
+    	
+		<div class="form-row">
+      		<div class="form-group col-lg-6 pr-5">
+			   <label for="exampleFormControlTextarea1"><span class="left_label bigger_labels">Description</span></label>
+			   <textarea required class="form-control" id="exampleFormControlTextarea1" name="left_body" rows="5" placeholder="Left body..." readonly>{{ left_body }}</textarea>
+		  	</div>
+      		
+			<div class="form-group col-lg-6 pl-5">
+			   <label for="exampleFormControlTextarea1"><span class="right_label bigger_labels">Description</span></label>
+			   <textarea required class="form-control" id="exampleFormControlTextarea1" name="right_body" rows="5" placeholder="Right body..." readonly>{{ right_body }}</textarea>
+		  	</div>
+    	</div>
+
+    	<div align="center">
+         
+        	<div class="form-group col-md-3">
+                <label for="model"><h2>Model</h2></label>
+                <form id="form1" action="/loaded" method="GET" enctype="multipart/form-data">
+                    <select name="model" id="model" class="form-control">
+                        <option selected>Query-based</option>
+                        <option>BERT-base</option>
+                        <option>Mobile-BERT</option>
+                        <option>DistilBERT</option>
+                        <option>RoBERTa</option>
+                        <option>XLNet</option>
+                        <option>GPT2</option>
+                    </select>
+        	</div>
+
+        	<div align = "center">
+            	<button class="btn btn-primary my-4">TextIntersect</button>
+        	</div>
+		</div>
+    </form>
+
+{% endblock content %}

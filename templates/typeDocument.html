@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>typeDocument</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+    </head>
+
+    <body>
+        <form method = "POST" action = "">
+            <div id = "container">
+                <div class = "row">
+                    <div class = "col-md-4">
+                        <div class = "content-section">
+                            <fieldset class = "border-bottom mb-4">
+                                <legend class = "border-bottom mb-4">
+                                    {{ form.file1.label(class = "form-control-label") }}
+                                </legend>
+
+                                <div class = "form-group">
+                                    {{ form.file1(class = "form-control form-control-lg") }}
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class = "offset-md-3 col-md-4">
+                        <div class = "content-section">
+                            <fieldset class = "form-group">
+                                <legend class = "border-bottom mb-4">
+                                    {{ form.file2.label(class = "form-control-label") }}
+                                </legend>
+    
+                                <div class = "form-group">
+                                    {{ form.file2(class = "form-control form-control-lg") }}    
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class = "offset-md-4 col-md-4">
+                        <div class = "row">
+                            <div class = "offset-md-2 col-md-4">
+                                <div class = "form-group">
+                                    {{ form.submit(class = "btn btn-outline-info")}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+
+    </body>
+</html>

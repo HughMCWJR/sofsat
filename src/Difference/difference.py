@@ -74,7 +74,7 @@ class Summary_Class_Difference(object):
         ##############
 
 
-        #This part is for scoirng
+        # This part is for scoring
         # Combine is created from union of R1 and R2
         R1 = R1.head(25)
         R2 = R2.head(25)

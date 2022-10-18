@@ -1,0 +1,66 @@
+
+	<form method = "POST" action = "">
+		<div id = "container">
+			<div class = "row">
+				<div class = "col-md-4">
+					<div class = "content-section">
+						<fieldset class = "form-group">
+							<legend class = "border-bottom mb-4">
+								{{ form.file1.label(class = "form-control-label") }}
+							</legend>
+
+							<div class = "form-group">
+								{% if form.file1.errors %}
+									{{ form.file1(class = "form-control form-control-lg is-invalid", id = "form-box") }}
+									<div class = "invalid-feedback">
+										{% for error in form.file1.errors %}
+											<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+								{% else %}
+									{{ form.file1(class = "form-control form-control-lg") }}
+								{% endif %}
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class = "offset-md-3 col-md-4">
+					<div class = "content-section">
+						<fieldset class = "form-group">
+							<legend class = "border-bottom mb-4">
+								{{ form.file2.label(class = "form-control-label") }}
+							</legend>
+
+							<div class = "form-group">
+								{% if form.file2.errors %}
+									{{ form.file2(class = "form-control form-control-lg is-invalid") }}
+									<div class = "invalid-feedback">
+									{% for error in form.file2.errors %}
+										<span>{{ error }}</span>
+									{% endfor %}
+									</div>
+								{% else %}
+									{{ form.file2(class = "form-control form-control-lg") }}
+								{% endif %}
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+
+			<div class = "row">
+				<div class = "offset-md-4 col-md-4">
+					<div class = "row">
+						<div class = "offset-md-2 col-md-4">
+							<div class = "form-group">
+								{{ form.submit(class = "btn btn-outline-info")}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--{{ form.hidden_tag() }}-->
+		</div>
+
+
+	</form>

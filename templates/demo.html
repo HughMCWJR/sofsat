@@ -1,0 +1,139 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <hr class = "my-8">
+    <hr class = "my-4">
+
+    <div class = "container-fluid padding">
+        <div class = "row text-center padding">
+            <div class = "col-xs-12 col-sm-6 col-md-4">
+                <a class = "btn btn-outline-light btn-lg" data-toggle = "collapse" data-target = "#chooseTopic">
+                    <h3>Choose from a topic</h3>
+                </a>
+                <p>Choose from a topic</p>
+            </div>
+
+            <div class = "col-xs-12 col-sm-6 col-md-4">
+                <a class="btn btn-outline-light btn-lg" data-toggle = "collapse" data-target = "#typeText">
+                    <h3>Type the documents</h3>
+                </a>
+                <p>Type the documents</p>
+            </div>
+
+
+            <div class = "col-sm-12 col-md-4">
+                <a class="btn btn-outline-light btn-lg" data-toggle = "collapse" data-target = "#uploadText">
+                    <h3>Upload the documents</h3>
+                </a>
+                <p>Upload the documents</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class = "my-1">
+
+    <!--Choose topic collapse-->
+    <div id = "chooseTopic" class = "collapse col-md-4 offset-md-4 text-center">
+        <div class="content-section">
+            <h3>Select a topic of your choice</h3>
+            <form action="{{ url_for('topicSelect') }}" method="post">
+                <div class="form-row">
+                    <div class="topic-select form-group text-center">
+                        <label for = "topicSelect">Choose Topic</label>
+                        <select name="topic" id = "topicSelect">
+                            <option>Any of them</option>
+                            <option>The White House</option>
+                            <option>Elections</option>
+                            <option>Congress</option>
+                            <option>Foreign Affairs</option>
+                            <option>Immigration</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary mb-3">Load!</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Type text collapse-->
+    <div id = "typeText" class = "collapse">
+        <div class = "container-fluid">
+            <form method = "POST" action = "/typeTextResult">
+                <div id = "container">
+                    <div class = "row">
+                        <div class = "col-md-4">
+                            <div class = "content-section">
+                                <div class="form-group">
+                                    <label for="file1">File 1</label>
+                                    <textarea class="form-control" id="file1" rows="6" name = "file1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class = "offset-md-3 col-md-4">
+                            <div class = "content-section">
+                                <div class="form-group">
+                                    <label for="file2">File 2</label>
+                                    <textarea class="form-control" id="file2" rows="6" name = "file2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class = "row">
+                        <div class = "col-md-4 offset-md-4">
+                            <div class = "row">
+                                <div class = "col-md-4 offset-md-2">
+                                    <div class="form-group col-md-3">
+                                        <label for = "model"><h2>Model</h2></label>
+                                        <form id="form1" action="/loaded" method="GET" enctype="multipart/form-data">
+                                            <select name="model" id="model" class="form-control">
+                                                <option>Mobile-BERT</option>
+                                                <option>BERT-base</option>
+                                                <option>DistilBERT</option>
+                                            </select>
+                                    </div>
+                                    
+                                    <div class = "form-group">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Upload text collapse-->
+    <div id = "uploadText" class = "collapse col-md-4 offset-md-4">
+        <div class = "container-fluid">
+            <form method = "POST" action = "/uploadTextResult" enctype = "multipart/form-data">
+                <div class="form-group">
+                    <label for="file1"><span class = "text-center">Input file 1</span></label>
+                    <input type="file" class="form-control-file" id="file1" name = "file1">
+                </div>
+
+                <div class="form-group">
+                    <label for="file2"><span class = "text-center">Input file 2</span></label>
+                    <input type="file" class="form-control-file" id="file2" name = "file2">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!--- Fixed background -->
+    <hr class = "my-0">
+    <figure>
+        <div class = "fixed-wrap">
+            <div id = "fixed">
+
+            </div>
+        </div>
+    </figure>
+
+{% endblock content %}

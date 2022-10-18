@@ -1,0 +1,46 @@
+{% entends layout.html %}
+{% block content %}
+	<div class = "row">
+		<div class = "col-sm-6 pr-5">
+			<label for = "left_story" class = "left_label bigger">Left Wing</label>
+			<div class = "card scroll_dif" id = "left_story">
+				<div class = "card-body">
+					<h4 class = "card-title">
+						{% for word in left_head %}
+							<span>{{word}}</span>
+						{% endfor %}
+					</h4>
+					{% for para in left_body %}
+						<p class = "card-text">
+							{% for word in para %}
+								<span>{{word}}</span>
+							{% endfor %}
+						</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class = "col-sm-6 pl-5">
+			<div class = "right_align">
+				<label for = "right_story" class = "right_label bigger">Right Wing</label>
+			</div>
+			<div class = "card scroll_dif" id = "right_story">
+				<div class = "card-body">
+					<h4 class = "card-title">
+						{% for word in right_head %}
+							<span>{{word}}</span>
+						{% endfor %}
+					</h4>
+					{% for para in right_body %}
+						<p class = "card-text">
+							{% for word in para %}
+								<span>{{word}}</span>
+							{% endfor %}
+						</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
