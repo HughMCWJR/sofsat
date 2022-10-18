@@ -24,7 +24,9 @@ $ python -m nltk.downloader punkt
 5. Target application as the Flask app
    - Run the following in the terminal to notify Flask which file to run. This must be done everytime the terminal is re-opened.
 ```
-$ export FLASK_APP=application.py
+$ set FLASK_ENV=development
+$ set FLASK_APP=app.py
+$ flask run
 ```
 
 6. Run the Flask app.
