@@ -28,7 +28,12 @@ $ set FLASK_ENV=development
 $ set FLASK_APP=app.py
 $ flask run
 ```
-
+or
+```
+$ $env:FLASK_ENV="development"
+$ $env:FLASK_APP="app.py"
+$ flask run
+```
 6. Run the Flask app.
    - Run the folling in the terminal to run the Flask app. Running this will output a local location where the app will be running and can be viewed any browser on the same computer. Learn more about Flask [here](https://flask.palletsprojects.com/en/1.1.x/).
  

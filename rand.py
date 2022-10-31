@@ -1,6 +1,6 @@
 import torch
-from summarization.models.model_builder import ExtSummarizer
-from summarization.ext_sum import summarize
+from summarizer import ExtSummarizer
+from ext_sum import summarize
 
 def sum(input_fp, result_fp, model_type):
 	# Load model

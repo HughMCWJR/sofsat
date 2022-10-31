@@ -8,7 +8,7 @@ import os
 from src.Intersection.Summary import *
 from src.concatenate_docs import comb_inputs
 import src.dummy as dummy
-from rand import sum
+#from rand import sum
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -128,7 +128,8 @@ def typeTextResult():
 
     print(model)    
 
-    sum('raw_data/file1.txt', 'summary/file1.txt', model_name)
+    # Commented out next line due to rand not working
+    # sum('raw_data/file1.txt', 'summary/file1.txt', model_name)
     # sum('raw_data/file2.txt', 'summary/file2.txt', model_name)
 
     summary_f1 = open('summary/file1.txt', 'r')
@@ -156,8 +157,9 @@ def uploadTextResult():
     f2.write(file2_data)
     f2.close()
 
-    sum('raw_data/file1.txt', 'summary/file1.txt')
-    sum('raw_data/file2.txt', 'summary/file2.txt')
+    # Commented out next two lines due to rand not working
+    #sum('raw_data/file1.txt', 'summary/file1.txt')
+    #sum('raw_data/file2.txt', 'summary/file2.txt')
 
     result_f1 = open('summary/file1.txt', 'r')
     result_1 = result_f1.read()
